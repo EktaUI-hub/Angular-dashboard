@@ -1,0 +1,278 @@
+<div class="dashboard flex min-h-screen ">
+    <aside class="w-16 bg-white shadow-md min-h-screen flex flex-col items-center py-4">
+        <div class="text-[#053C6D] text-lg font-bold mb-8">LOGO</div>
+        <nav class="flex flex-col items-center space-y-6">
+            <button class="w-10 h-10 flex items-center justify-center hover:bg-gray-300">
+                <img src="/assets/icons/1.png" alt="icon" class="w-5 h-5">
+            </button>
+            <button class="w-10 h-10 flex items-center justify-center hover:bg-gray-300">
+                <img src="/assets/icons/2.png" alt="icon" class="w-5 h-5">
+            </button>
+            <button class="w-10 h-10 flex items-center justify-center hover:bg-gray-300">
+                <img src="/assets/icons/4.png" alt="icon" class="w-5 h-5">
+            </button>
+            <button class="w-10 h-10 flex items-center justify-center hover:bg-gray-300">
+                <img src="/assets/icons/5.png" alt="icon" class="w-5 h-5">
+            </button>
+            <button class="w-10 h-10 flex items-center justify-center hover:bg-gray-300">
+                <img src="/assets/icons/6.png" alt="icon" class="w-5 h-5">
+            </button>
+            <button class="w-10 h-10 flex items-center justify-center hover:bg-gray-300">
+                <img src="/assets/icons/3.png" alt="icon" class="w-5 h-5">
+            </button>
+            <button class="w-10 h-10 flex items-center justify-center hover:bg-gray-300">
+                <img src="/assets/icons/8.png" alt="icon" class="w-5 h-5">
+            </button>
+        </nav>
+    </aside>
+
+    <div class="flex-1 flex flex-col">
+        <header class="bg-white shadow-sm px-6 py-3 flex items-center justify-between">
+            <div class="text-blue-700 text-xl font-bold">
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-gray-500 hover:text-blue-600">
+                    <img src="/assets/icons/2.png" alt="icon" class="w-5 h-5">
+                </button>
+                <button class="text-gray-500 hover:text-blue-600">
+                    <img src="/assets/icons/9.png" alt="icon" class="w-5 h-5">
+                </button>
+                <div class="w-8 h-8 rounded-full bg-gray-300 overflow-hidden">
+                    <img src="/assets/icons/3.png" alt="User Profile" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </header>
+
+        <div class="flex-1 p-6">
+            <header class="p-4 flex flex-wrap items-center justify-between">
+                <div class="flex items-center space-x-4 md:space-x-6">
+                    <h1 class="text-[#053C6D] text-base md:text-lg font-bold">Tasks</h1>
+                </div>
+                <div class="flex-1 text-center mt-4 md:mt-0 hidden md:block">
+                    <span class="text-[#212121] text-sm md:text-lg">125 Tasks</span>
+                </div>
+                <div class="flex items-center space-x-2 md:space-x-4 mt-4 md:mt-0">
+                    <div class="relative w-full sm:w-auto">
+                        <input type="text"
+                            class="w-full sm:w-auto border border-gray-300 rounded-lg p-2 pr-8 text-sm focus:outline-none"
+                            placeholder="Search" />
+                        <span class="absolute right-2 top-2 text-gray-400">
+                            <img src="/assets/icons/6.png" alt="icon" class="w-5 h-5" />
+                        </span>
+                    </div>
+                    <button class="bg-white md:p-2 rounded-lg hover:bg-gray-300">
+                        <img src="/assets/icons/7.png" alt="icon" class="w-8 md:w-4 h-4" />
+                    </button>
+                    <button class="bg-white p-2 rounded-lg hover:bg-gray-300">
+                        <img src="/assets/icons/8.png" alt="icon" class="w-8 md:w-4 h-4" />
+                    </button>
+                    <button
+                        class="bg-white text-[#053C6D] px-4 py-2 border border-[#053C6D] rounded-lg hover:bg-blue-700 hover:text-white">
+                        Add
+                    </button>
+                </div>
+            </header>
+
+            <div class="grid grid-cols-12 gap-6">
+                <div class="col-span-12 md:col-span-4 space-y-6">
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h3 class="text-lg font-medium">Statistics</h3>
+                        <app-chart [options]="statisticsOptions" height="300px"></app-chart>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-medium">Tasks Status</h3>
+                            <select class="border border-gray-300 rounded px-2 py-1 text-sm">
+                                <option>Day</option>
+                                <option>Week</option>
+                                <option>Month</option>
+                            </select>
+                        </div>
+                        <app-chart [options]="taskStatusOptions" height="300px"></app-chart>
+                        <div class="flex items-center justify-between mt-4">
+                            <button class="text-gray-400 hover:text-gray-600">&lt;</button>
+                            <span class="text-sm text-black">06-06-2024</span>
+                            <button class="text-gray-400 hover:text-gray-600">&gt;</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 md:col-span-8 bg-white rounded-lg border border-gray-300 p-4 overflow-x-auto">
+                    <div class="overflow-x-auto">
+                        <table class="table-auto w-full border-collapse border border-gray-200 text-left text-sm">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="border border-gray-200 p-2">Task ID</th>
+                                    <th class="border border-gray-200 p-2">Customer Name</th>
+                                    <th class="border border-gray-200 p-2">Gender</th>
+                                    <th class="border border-gray-200 p-2">Mobile No</th>
+                                    <th class="border border-gray-200 p-2">WhatsApp No</th>
+                                    <th class="border border-gray-200 p-2">Email ID</th>
+                                    <th class="border border-gray-200 p-2">Preferred Language</th>
+                                    <th class="border border-gray-200 p-2">Preferred Time</th>
+                                    <th class="border border-gray-200 p-2">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-gray-200 p-2">T1234</td>
+                                    <td class="border border-gray-200 p-2">Pintu Pal</td>
+                                    <td class="border border-gray-200 p-2">M</td>
+                                    <td class="border border-gray-200 p-2">+91 932*******</td>
+                                    <td class="border border-gray-200 p-2">+91 932*******</td>
+                                    <td class="border border-gray-200 p-2">Pin***&#64;gmail.com</td>
+                                    <td class="border border-gray-200 p-2">English</td>
+                                    <td class="border border-gray-200 p-2">10:00 AM IST</td>
+                                    <td class="border border-gray-200 p-2 text-[#36BC9B]">Completed</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-200 p-2">T1234</td>
+                                    <td class="border border-gray-200 p-2">Mallika Chawla</td>
+                                    <td class="border border-gray-200 p-2">F</td>
+                                    <td class="border border-gray-200 p-2">+91 704*******</td>
+                                    <td class="border border-gray-200 p-2">+91 704*******</td>
+                                    <td class="border border-gray-200 p-2">sim*****&#64;yahoo.com</td>
+                                    <td class="border border-gray-200 p-2">English</td>
+                                    <td class="border border-gray-200 p-2">02:00 PM IST</td>
+                                    <td class="border border-gray-200 p-2 text-[#DB4453]">Pending</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-200 p-2">T1234</td>
+                                    <td class="border border-gray-200 p-2">Swapnil Dhule</td>
+                                    <td class="border border-gray-200 p-2">M</td>
+                                    <td class="border border-gray-200 p-2">+91 984*******</td>
+                                    <td class="border border-gray-200 p-2">+91 984*******</td>
+                                    <td class="border border-gray-200 p-2">swa***&#64;gmail.com</td>
+                                    <td class="border border-gray-200 p-2">English</td>
+                                    <td class="border border-gray-200 p-2">10:00 AM IST</td>
+                                    <td class="border border-gray-200 p-2 text-[#FBAD17]">WIP</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-200 p-2">T1234</td>
+                                    <td class="border border-gray-200 p-2">Pintu Pal</td>
+                                    <td class="border border-gray-200 p-2">M</td>
+                                    <td class="border border-gray-200 p-2">+91 932*******</td>
+                                    <td class="border border-gray-200 p-2">+91 932*******</td>
+                                    <td class="border border-gray-200 p-2">Pin***&#64;gmail.com</td>
+                                    <td class="border border-gray-200 p-2">English</td>
+                                    <td class="border border-gray-200 p-2">10:00 AM IST</td>
+                                    <td class="border border-gray-200 p-2 text-[#36BC9B]">Completed</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-200 p-2">T1234</td>
+                                    <td class="border border-gray-200 p-2">Pintu Pal</td>
+                                    <td class="border border-gray-200 p-2">M</td>
+                                    <td class="border border-gray-200 p-2">+91 932*******</td>
+                                    <td class="border border-gray-200 p-2">+91 932*******</td>
+                                    <td class="border border-gray-200 p-2">Pin***&#64;gmail.com</td>
+                                    <td class="border border-gray-200 p-2">English</td>
+                                    <td class="border border-gray-200 p-2">10:00 AM IST</td>
+                                    <td class="border border-gray-200 p-2 text-[#4B89DC]">Rescheduled</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-200 p-2">T1234</td>
+                                    <td class="border border-gray-200 p-2">Mallika Chawla</td>
+                                    <td class="border border-gray-200 p-2">F</td>
+                                    <td class="border border-gray-200 p-2">+91 704*******</td>
+                                    <td class="border border-gray-200 p-2">+91 704*******</td>
+                                    <td class="border border-gray-200 p-2">sim*****&#64;yahoo.com</td>
+                                    <td class="border border-gray-200 p-2">English</td>
+                                    <td class="border border-gray-200 p-2">02:00 PM IST</td>
+                                    <td class="border border-gray-200 p-2 text-[#DB4453]">Pending</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-200 p-2">T1234</td>
+                                    <td class="border border-gray-200 p-2">Swapnil Dhule</td>
+                                    <td class="border border-gray-200 p-2">M</td>
+                                    <td class="border border-gray-200 p-2">+91 984*******</td>
+                                    <td class="border border-gray-200 p-2">+91 984*******</td>
+                                    <td class="border border-gray-200 p-2">swa***&#64;gmail.com</td>
+                                    <td class="border border-gray-200 p-2">English</td>
+                                    <td class="border border-gray-200 p-2">10:00 AM IST</td>
+                                    <td class="border border-gray-200 p-2 text-[#FBAD17]">WIP</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-200 p-2">T1234</td>
+                                    <td class="border border-gray-200 p-2">Pintu Pal</td>
+                                    <td class="border border-gray-200 p-2">M</td>
+                                    <td class="border border-gray-200 p-2">+91 932*******</td>
+                                    <td class="border border-gray-200 p-2">+91 932*******</td>
+                                    <td class="border border-gray-200 p-2">Pin***&#64;gmail.com</td>
+                                    <td class="border border-gray-200 p-2">English</td>
+                                    <td class="border border-gray-200 p-2">10:00 AM IST</td>
+                                    <td class="border border-gray-200 p-2 text-[#36BC9B]">Completed</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-200 p-2">T1234</td>
+                                    <td class="border border-gray-200 p-2">Mallika Chawla</td>
+                                    <td class="border border-gray-200 p-2">F</td>
+                                    <td class="border border-gray-200 p-2">+91 704*******</td>
+                                    <td class="border border-gray-200 p-2">+91 704*******</td>
+                                    <td class="border border-gray-200 p-2">sim*****&#64;yahoo.com</td>
+                                    <td class="border border-gray-200 p-2">English</td>
+                                    <td class="border border-gray-200 p-2">02:00 PM IST</td>
+                                    <td class="border border-gray-200 p-2 text-[#DB4453]">Pending</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-200 p-2">T1234</td>
+                                    <td class="border border-gray-200 p-2">Swapnil Dhule</td>
+                                    <td class="border border-gray-200 p-2">M</td>
+                                    <td class="border border-gray-200 p-2">+91 984*******</td>
+                                    <td class="border border-gray-200 p-2">+91 984*******</td>
+                                    <td class="border border-gray-200 p-2">swa***&#64;gmail.com</td>
+                                    <td class="border border-gray-200 p-2">English</td>
+                                    <td class="border border-gray-200 p-2">10:00 AM IST</td>
+                                    <td class="border border-gray-200 p-2 text-[#FBAD17]">WIP</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-200 p-2">T1234</td>
+                                    <td class="border border-gray-200 p-2">Pintu Pal</td>
+                                    <td class="border border-gray-200 p-2">M</td>
+                                    <td class="border border-gray-200 p-2">+91 932*******</td>
+                                    <td class="border border-gray-200 p-2">+91 932*******</td>
+                                    <td class="border border-gray-200 p-2">Pin***&#64;gmail.com</td>
+                                    <td class="border border-gray-200 p-2">English</td>
+                                    <td class="border border-gray-200 p-2">10:00 AM IST</td>
+                                    <td class="border border-gray-200 p-2 text-[#36BC9B]">Completed</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-200 p-2">T1234</td>
+                                    <td class="border border-gray-200 p-2">Mallika Chawla</td>
+                                    <td class="border border-gray-200 p-2">F</td>
+                                    <td class="border border-gray-200 p-2">+91 704*******</td>
+                                    <td class="border border-gray-200 p-2">+91 704*******</td>
+                                    <td class="border border-gray-200 p-2">sim*****&#64;yahoo.com</td>
+                                    <td class="border border-gray-200 p-2">English</td>
+                                    <td class="border border-gray-200 p-2">02:00 PM IST</td>
+                                    <td class="border border-gray-200 p-2 text-[#DB4453]">Pending</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="flex items-center justify-between text-sm text-gray-500 mt-4">
+                        <div>Showing 1 to 10 of 80 entries</div>
+                        <div class="flex items-center space-x-2">
+                            <button
+                                class="w-8 h-8 flex items-center justify-center rounded border border-gray-300 text-gray-500 hover:bg-gray-100 disabled:opacity-50"
+                                disabled>
+                                <span>&lt;</span>
+                            </button>
+                            <button
+                                class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-600 text-white">1</button>
+                            <button
+                                class="w-8 h-8 flex items-center justify-center rounded border border-gray-300 text-gray-500 hover:bg-gray-100">2</button>
+                            <button class="w-8 h-8 flex items-center justify-center text-gray-400">...</button>
+                            <button
+                                class="w-8 h-8 flex items-center justify-center rounded border border-gray-300 text-gray-500 hover:bg-gray-100">15</button>
+                            <button
+                                class="w-8 h-8 flex items-center justify-center rounded border border-gray-300 text-gray-500 hover:bg-gray-100">
+                                <span>&gt;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
